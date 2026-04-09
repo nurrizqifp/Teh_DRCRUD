@@ -94,6 +94,9 @@
             // cmbJK
             // 
             this.cmbJK.FormattingEnabled = true;
+            this.cmbJK.Items.AddRange(new object[] {
+            "L",
+            "P"});
             this.cmbJK.Location = new System.Drawing.Point(153, 116);
             this.cmbJK.Name = "cmbJK";
             this.cmbJK.Size = new System.Drawing.Size(121, 21);
