@@ -34,7 +34,7 @@ namespace CRUDMahasiswaADO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Koneksi gagal"+ ex.Message);
+                MessageBox.Show("Koneksi gagal" + ex.Message);
             }
         }
 
@@ -50,7 +50,7 @@ namespace CRUDMahasiswaADO
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-
+            ConnectDatabase();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
