@@ -106,10 +106,10 @@ namespace CRUDMahasiswaADO
                     conn.Open();
                 }
 
-                if (txtNIM.Text == "")
+                if (p.Text == "")
                 {
                     MessageBox.Show("NIM harus diisi");
-                    txtNIM.Focus();
+                    p.Focus();
                     return;
                 }
 
@@ -141,7 +141,7 @@ namespace CRUDMahasiswaADO
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
-                cmd.Parameters.AddWithValue("@NIM", txtNIM.Text);
+                cmd.Parameters.AddWithValue("@NIM", p.Text);
                 cmd.Parameters.AddWithValue("@Nama", txtNama.Text);
                 cmd.Parameters.AddWithValue("@JK", cmbJK.Text);
                 cmd.Parameters.AddWithValue("@TanggalLahir", dtpTanggalLahir.Value.Date);
@@ -187,7 +187,7 @@ namespace CRUDMahasiswaADO
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
-                cmd.Parameters.AddWithValue("@NIM", txtNIM.Text);
+                cmd.Parameters.AddWithValue("@NIM", p.Text);
                 cmd.Parameters.AddWithValue("@Nama", txtNama.Text);
                 cmd.Parameters.AddWithValue("@JK", cmbJK.Text);
                 cmd.Parameters.AddWithValue("@TanggalLahir", dtpTanggalLahir.Value.Date);
@@ -234,7 +234,7 @@ namespace CRUDMahasiswaADO
                     string query = "DELETE FROM Mahasiswa WHERE NIM = @NIM";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@NIM", txtNIM.Text);
+                    cmd.Parameters.AddWithValue("@NIM", p.Text);
 
                     int result = cmd.ExecuteNonQuery();
 
@@ -261,7 +261,7 @@ namespace CRUDMahasiswaADO
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
-                txtNIM.Text = row.Cells["NIM"].Value.ToString();
+                p.Text = row.Cells["NIM"].Value.ToString();
                 txtNama.Text = row.Cells["Nama"].Value.ToString();
                 cmbJK.Text = row.Cells["JenisKelamin"].Value.ToString();
                 dtpTanggalLahir.Value = Convert.ToDateTime(row.Cells["TanggalLahir"].Value);
@@ -271,13 +271,13 @@ namespace CRUDMahasiswaADO
         }
         private void ClearForm()
         {
-            txtNIM.Clear();
+            p.Clear();
             txtNama.Clear();
             cmbJK.SelectedIndex = -1;
             txtAlamat.Clear();
             txtKodeProdi.Clear();
             dtpTanggalLahir.Value = DateTime.Now;
-            txtNIM.Focus();
+            p.Focus();
         }
 
         private void Form1_Load(object sender, EventArgs e)
